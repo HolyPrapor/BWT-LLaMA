@@ -5,14 +5,15 @@ def find_matching(search, lookahead):
     for i in range(len(search)):
         length = 0
 
-        while (length < len(lookahead) and length + i < len(search) and search[i + length] == lookahead[length]):
+        while length < len(lookahead) and length + i < len(search) and search[i + length] == lookahead[length]:
             length += 1
 
-        if (best_length < length):
+        if best_length < length:
             best_length = length
             best_position = len(search) - i
 
     return best_position, best_length
+
 
 def lz77_encode(input_string, search_len=20):
     ans = []
